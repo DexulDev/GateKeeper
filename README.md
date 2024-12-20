@@ -1,41 +1,78 @@
 # Laravel Simple Login
 
-This is a simple login project I decided to create one day when I was bored. It serves as a basic Laravel implementation with user authentication.
+## Introduction
+This is a simple login project built with Laravel. The frontend was adapted from FreeFrontend because I prefer focusing on backend development rather than frontend. It provides basic user authentication features.
+
+---
 
 ## Requirements
 
+Ensure you have the following installed on your system:
 - PHP
 - Composer
 
-## Installation
+---
 
-1. **Clone the repository:**
+## Setup Instructions
 
-   ```bash
-   git clone <repository-url>
-   ```
-2. **Navigate to the project folder:**
-   ```bash
-   cd project-name
-   ```
-3. **Install PHP dependencies:**
-   ```bash
-   composer install
-   ```
-4. **Set up the environment file:**
+### 1. Clone the Repository
+```bash
+git clone <repository-url>
+cd <repository-folder>
+```
 
-Create a .env file from the .env.example file:
-   ```bash
-   cp .env.example .env
-   ```
-then, edit the .env file to configure your database settings.
+### 2. Install Dependencies
+Run the following command to install all Laravel dependencies:
+```bash
+composer install
+```
 
-5. **Run the migrations:**
-   ```bash
-   php artisan migrate
-   ```
-6. **Run the project:**
-   ```bash
-   php artisan serve.
-   ```
-Go to the link provided in the console and enjoy! :)
+### 3. Create the `.env` File
+Create a `.env` file in the root directory by copying the example file:
+```bash
+cp .env.example .env
+```
+
+### 4. Configure the `.env` File
+Open the `.env` file in a text editor and configure the database settings. For example:
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=your_database_name
+DB_USERNAME=your_database_user
+DB_PASSWORD=your_database_password
+```
+
+### 5. Run Migrations
+Set up the database tables by running migrations:
+```bash
+php artisan migrate
+```
+
+### 6. Serve the Application
+Start the Laravel development server:
+```bash
+php artisan serve
+```
+
+The application will be accessible at `http://127.0.0.1:8000`.
+
+---
+
+## Additional Notes
+
+### Frontend Adaptation
+The frontend for this login application was adapted from FreeFrontend. As a backend developer, I prefer not to spend time on frontend design. If you'd like to enhance or customize the frontend, feel free to modify the views located in the `resources/views` directory.
+
+### Troubleshooting
+- Ensure your `.env` file has correct database credentials.
+- If you encounter permission issues, verify that your `storage` and `bootstrap/cache` directories are writable:
+  ```bash
+  chmod -R 775 storage bootstrap/cache
+  ```
+
+- If you need to reset the database, run:
+  ```bash
+  php artisan migrate:refresh
+  ```
