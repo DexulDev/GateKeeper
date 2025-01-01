@@ -7,19 +7,14 @@
     <title>Hi</title>
 </head>
 <body>
-    @if(session('username'))
-        <p>Hi!, {{ session('username') }}</p>
-    @endif
-
+    Welcome, you have successfully register, but unfortunately I don't know how to create a frontend, so here is 😁
     <br>
-    Welcome, you have successfully logged in, but unfortunately I don't know how to create a frontend, so here is 😁
-    <br>
-    <form id="logout-form" action="{{ route('login.logout') }}" method="POST" style="display: none;">
+    <form id="logout-form" action="{{ route('login') }}" method="GET" style="display: none;">
         @csrf
-        <button type="submit">Logout</button>
+        <button type="submit">Login</button>
     </form>
     <button onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-        Logout
+        Login
     </button>
     </form>
 </body>

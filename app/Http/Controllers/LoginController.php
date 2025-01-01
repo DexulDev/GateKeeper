@@ -15,7 +15,8 @@ class LoginController extends Controller
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
             Auth::login($user);
-            return redirect()->route('welcome');
+            $username = $user->name;
+            return redirect()->route('welcome')->with('username', $username);
         }else{
             return redirect()->route('error');
         }
@@ -29,7 +30,7 @@ class LoginController extends Controller
         $user->password = Hash::make($request->input('password'));
         $user->save();
 
-        return redirect()->route('welcome');
+        return redirect()->route('registered');
     }
 
     public function logout()

@@ -19,3 +19,7 @@ Route::get('/error', function () {
 })->name('error');
 
 Route::post('/logout', [LoginController::class, 'logout'])->name('login.logout');
+
+Route::get('/registered', function () {
+    return view('registered');
+})->name('registered');
