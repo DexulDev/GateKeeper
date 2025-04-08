@@ -65,13 +65,6 @@ The application will be accessible at `http://127.0.0.1:8000`.
 ### Frontend Adaptation
 The frontend for this login application was adapted from FreeFrontend. As a backend developer, I prefer not to spend time on frontend design. If you'd like to enhance or customize the frontend, feel free to modify the views located in the `resources/views` directory.
 
-### Troubleshooting
-- Ensure your `.env` file has correct database credentials.
-- If you encounter permission issues, verify that your `storage` and `bootstrap/cache` directories are writable:
-  ```bash
-  chmod -R 775 storage bootstrap/cache
-  ```
-
 - If you need to reset the database, run:
   ```bash
   php artisan migrate:refresh
