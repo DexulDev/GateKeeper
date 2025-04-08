@@ -26,6 +26,10 @@
             <h1>Sign in</h1>
             <input type="email" name="email" placeholder="Email" />
             <input type="password" name="password" placeholder="Password" />
+            <div style="display: flex; align-items: center; margin: 15px 0;">
+                <input type="checkbox" name="remember" id="remember" style="width: auto; margin-right: 5px;">
+                <label for="remember">Remember me</label>
+            </div>
             <button>Sign In</button>
         </form>
     </div>

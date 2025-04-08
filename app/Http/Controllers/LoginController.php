@@ -11,19 +11,30 @@ class LoginController extends Controller
 {
     public function login(Request $request)
     {
-        $user = User::where('email', $request->email)->first();
+        if (Auth::check()) {
+            return redirect()->route('welcome');
+        }
         $credentials = $request->only('email', 'password');
-        if (Auth::attempt($credentials)) {
-            Auth::login($user);
+        $remember = $request->has('remember');
+        
+        if (Auth::attempt($credentials, $remember)) {
+            // Authentication passed
+            $request->session()->regenerate();
+            
+            $user = Auth::user();
             $username = $user->name;
+            
             return redirect()->route('welcome')->with('username', $username);
-        }else{
+        } else {
             return redirect()->route('error');
         }
     }
 
     public function register(Request $request)
     {
+        if (Auth::check()) {
+            return redirect()->route('welcome');
+        }
         $user = new User();
         $user->name = $request->input('name');
         $user->email = $request->input('email');
